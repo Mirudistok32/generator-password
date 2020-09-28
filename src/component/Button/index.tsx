@@ -1,12 +1,27 @@
-import React from 'react'
+import React, { MouseEvent } from 'react'
 import s from './Button.module.scss'
 
-export const Button = () => {
+type PropsType = {
+    title: string
+    onClick?: (e: MouseEvent<HTMLButtonElement>) => void
+}
 
-    
+export const Button: React.FC<PropsType> = (props) => {
+
+    const { title, children, onClick } = props
+
+    const onClickHandler = (e: MouseEvent<HTMLButtonElement>) => {
+        onClick && onClick(e)
+    }
+
     return (
-        <div className={s.btn}>
-
-        </div>
+        <button
+            className={s.btn}
+            onClick={(e) => onClickHandler(e)}
+        >
+            {
+                children ? children : title
+            }
+        </button>
     )
 }
