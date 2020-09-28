@@ -1,5 +1,6 @@
 import React from 'react'
 import { Button } from '../Button'
+import { InputRange } from '../InputRange'
 import s from './DisplayPassword.module.scss'
 
 export const DisplayPassword = () => {
@@ -18,7 +19,8 @@ export const DisplayPassword = () => {
                     renderSymbols
                 }
             </div>
-            <div className={s.displaypassword__btns}>
+            <div className={s.displaypassword__group}>
+                <InputRange className={s.displaypassword__input} />
                 <Button title={"Copy"} />
                 <Button title={"Generator"} />
             </div>
