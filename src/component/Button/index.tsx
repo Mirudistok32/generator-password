@@ -6,7 +6,7 @@ type PropsType = {
     onClick?: (e: MouseEvent<HTMLButtonElement>) => void
 }
 
-export const Button: React.FC<PropsType> = (props) => {
+export const Button: React.FC<PropsType> = React.memo((props) => {
 
     const { title, children, onClick } = props
 
@@ -24,4 +24,4 @@ export const Button: React.FC<PropsType> = (props) => {
             }
         </button>
     )
-}
+})
