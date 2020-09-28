@@ -1,3 +1,6 @@
-.input{
-    
+.input {
+  &:hover {
+    background-color: #eeeeee;
+    box-shadow: 0 0 0 1px mediumslateblue, 0 0 10px 1px #eeeeee;
+  }
 }
