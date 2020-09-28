@@ -1,0 +1,6 @@
+@mixin fontPoppins($fontWeight: 400, $fontStyle: italic) {
+  @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;700;900&display=swap");
+  font-family: "Poppins", sans-serif;
+  font-weight: $fontWeight;
+  font-style: $fontStyle;
+}
