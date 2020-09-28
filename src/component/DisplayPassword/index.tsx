@@ -20,7 +20,7 @@ export const DisplayPassword = () => {
                 }
             </div>
             <div className={s.displaypassword__group}>
-                <InputRange className={s.displaypassword__input} />
+                <InputRange className={s.displaypassword__input} value={107} max={107} />
                 <Button title={"Copy"} />
                 <Button title={"Generator"} />
             </div>
