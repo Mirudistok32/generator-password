@@ -5,7 +5,7 @@ export const DisplayPassword = () => {
 
 
     return (
-        <div className={s.displaypassword}>
+        <div className={s.displaypassword} contentEditable>
             
         </div>
     )

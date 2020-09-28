@@ -1,0 +1,6 @@
+@import "../../scss/mixins";
+
+.displaysettings {
+  @include commonStylesForDisplay;
+  min-height: 250px;
+}

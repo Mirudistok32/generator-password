@@ -1,3 +1,11 @@
+@mixin commonStylesForDisplay() {
+  width: 100%;
+  margin: 20px 0;
+  border-radius: 5px;
+  box-shadow: 0 0 0 1px #000;
+  padding: 10px;
+}
+
 @mixin fontPoppins($fontWeight: 400, $fontStyle: italic) {
   @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;700;900&display=swap");
   font-family: "Poppins", sans-serif;
