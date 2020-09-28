@@ -2,7 +2,7 @@ import React, { ChangeEvent } from 'react'
 import s from './InputDisplay.module.scss'
 
 type PropsType = {
-    className: string
+    className?: string
     value: number
     onChange: (e: ChangeEvent<HTMLInputElement>) => void
 }

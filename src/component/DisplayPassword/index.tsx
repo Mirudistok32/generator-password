@@ -1,5 +1,6 @@
 import React, { ChangeEvent, useCallback } from 'react'
 import { Button } from '../Button'
+import { InputDisplay } from '../InputDisplay'
 import { InputRange } from '../InputRange'
 import s from './DisplayPassword.module.scss'
 
@@ -11,7 +12,11 @@ export const DisplayPassword = () => {
     }
     const renderSymbols = arr.map((i, idx) => <span key={idx + 1}>{Math.floor(Math.random() * 1000)}</span>)
 
-    const onChangeHandler = useCallback((e: ChangeEvent<HTMLInputElement>) => {
+    const onChangeInputRangeHandler = useCallback((e: ChangeEvent<HTMLInputElement>) => {
+
+    }, [])
+
+    const onChangeInputDisplayHandler = useCallback((e: ChangeEvent<HTMLInputElement>) => {
 
     }, [])
 
@@ -23,7 +28,8 @@ export const DisplayPassword = () => {
                 }
             </div>
             <div className={s.displaypassword__group}>
-                <InputRange className={s.displaypassword__input} value={20} max={107} onChange={onChangeHandler} />
+                <InputDisplay className={s.displaypassword__inputDisplay} value={20} onChange={onChangeInputDisplayHandler} />
+                <InputRange className={s.displaypassword__inputRange} value={20} max={107} onChange={onChangeInputRangeHandler} />
                 <Button title={"Copy"} />
                 <Button title={"Generator"} />
             </div>

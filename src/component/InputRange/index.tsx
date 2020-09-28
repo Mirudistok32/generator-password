@@ -22,7 +22,7 @@ const setStyleLeftOutput = (valuedefault: number) => {
 }
 
 type PropsType = {
-    className: string
+    className?: string
     value: number
     max?: number
     onChange: (e: ChangeEvent<HTMLInputElement>) => void
