@@ -3,23 +3,26 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
   border-radius: 5px;
   width: 100%;
-  &:hover {
-    .wrap__output {
-      opacity: 1;
-    }
-  }
   &__output {
-    position: absolute;
-    opacity: 0;
-    top: -17px;
-    padding: 1px 6px;
+    position: relative;
+    padding: 5px 10px;
     background-color: slateblue;
     color: snow;
-    $borderRadius: 6px;
-    border-radius: $borderRadius $borderRadius 0px $borderRadius;
+    border-radius: 10px 3px 10px 0;
+    margin-right: 15px;
+    &::before {
+      content: "";
+      position: absolute;
+      height: 20px;
+      width: 20px;
+      background-color: slateblue;
+      right: 0;
+      top: 50%;
+      transform: translateX(30%) translateY(-50%) rotateZ(45deg);
+      z-index: -1;
+    }
   }
 }
 .input {
