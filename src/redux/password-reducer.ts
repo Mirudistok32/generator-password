@@ -11,6 +11,11 @@ const initialState = {
     ],
     maxValue: 107,
     inputValue: 0,
+    isNumbers: false,
+    isLetters: false,
+    isSymbols: false,
+    isUppercase: false,
+    isLowercase: false,
 }
 
 const password = createSlice({

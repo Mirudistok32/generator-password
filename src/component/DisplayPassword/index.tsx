@@ -15,11 +15,11 @@ export const DisplayPassword = React.memo(() => {
 
 
     let arr: number[] = []
-    for (let i = 0; i < 100; i++) {
+    for (let i = 0; i < value; i++) {
         arr.push(i)
     }
     const renderSymbols = useMemo(() => {
-        return arr.map((i, idx) => <span key={idx + 1}>{Math.floor(Math.random() * 1000)}</span>)
+        return arr.map((i, idx) => <span key={idx + 1}>{Math.floor(Math.random() * 10)}</span>)
     }, [arr])
 
     const onChangeInputRangeHandler = useCallback((e: ChangeEvent<HTMLInputElement>) => {
