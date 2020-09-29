@@ -21,7 +21,7 @@ export const getRandomOne = (data: Array<CheckBottonsType>) => {
 
     let randoms: Array<string | number> = [];
 
-    let empty: string[] | null = data.map(i => {
+    let empty = data.map(i => {
         if (i.title === 'Numbers' && i.checked) {
             randoms.push(getRandomNumber())
         }
