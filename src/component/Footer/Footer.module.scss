@@ -1,0 +1,26 @@
+.footer {
+  background-color: #2d2d2d;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: snow;
+  a {
+    padding: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 30px;
+    border-radius: 50%;
+    &:hover {
+      svg {
+        fill: dodgerblue;
+      }
+    }
+  }
+  svg {
+    transition: all 0.3s ease-in-out;
+    height: 27px;
+    fill: snow;
+  }
+}

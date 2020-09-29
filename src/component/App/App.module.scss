@@ -4,14 +4,20 @@
   display: flex;
   align-items: center;
   flex-direction: column;
+  &__wrap {
+    flex: 1 0 auto;
+  }
+  &__footer {
+    flex-shrink: 0;
+  }
 }
-@media(max-width: 690px){
-  .app{
+@media (max-width: 690px) {
+  .app {
     padding-top: 10px;
   }
 }
-@media(max-width: 500px){
-  .app{
+@media (max-width: 500px) {
+  .app {
     padding-top: 5px;
   }
 }
