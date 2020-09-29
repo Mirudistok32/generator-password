@@ -1,13 +1,16 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { v4 } from "uuid";
 
 const initialState = {
+    checkBottons: [
+        { title: 'Numbers', checked: true, id: v4() },
+        { title: 'Letters', checked: false, id: v4() },
+        { title: 'Symbols', checked: false, id: v4() },
+        { title: 'Uppercase', checked: false, id: v4() },
+        { title: 'Lowercase', checked: false, id: v4() },
+    ],
     maxValue: 107,
     inputValue: 0,
-    isNumbersCheck: true,
-    isSymbolsCheck: false,
-    isLettersCheck: false,
-    isUppercaseCheck: false,
-    isLowercaseCheck: false
 }
 
 const password = createSlice({
@@ -17,31 +20,18 @@ const password = createSlice({
         setValueAC(state, { payload }: PayloadAction<number>) {
             state.inputValue = payload
         },
-        setIsNumbersCheckAC(state, { payload }: PayloadAction<{ isNumber: boolean }>) {
-            state.isNumbersCheck = payload.isNumber
-        },
-        setIsSymbolsCheckAC(state, { payload }: PayloadAction<{ isSymbol: boolean }>) {
-            state.isSymbolsCheck = payload.isSymbol
-        },
-        setIsLettersCheckAC(state, { payload }: PayloadAction<{ isLetter: boolean }>) {
-            state.isLettersCheck = payload.isLetter
-        },
-        setIsUppercaseCheckAC(state, { payload }: PayloadAction<{ isUppercase: boolean }>) {
-            state.isUppercaseCheck = payload.isUppercase
-        },
-        setIsLowercaseCheckAC(state, { payload }: PayloadAction<{ isLowercase: boolean }>) {
-            state.isLowercaseCheck = payload.isLowercase
+        setIsCheckedAC(state, { payload }: PayloadAction<{ isChecked: boolean, id: string }>) {
+            const elem = state.checkBottons.find(i => i.id === payload.id)
+            if (elem) {
+                elem.checked = payload.isChecked
+            }
         },
     }
 })
 
 
 export const {
-    setIsLettersCheckAC,
-    setIsLowercaseCheckAC,
-    setIsNumbersCheckAC,
-    setIsSymbolsCheckAC,
-    setIsUppercaseCheckAC,
-    setValueAC
+    setValueAC,
+    setIsCheckedAC,
 } = password.actions
 export const passwordReducer = password.reducer
