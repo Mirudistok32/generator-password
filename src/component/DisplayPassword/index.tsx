@@ -1,6 +1,6 @@
-import React, { ChangeEvent, useCallback, useMemo } from 'react'
+import React, { ChangeEvent, MouseEvent, useCallback, useEffect, useMemo } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { setValueAC } from '../../redux/password-reducer'
+import { setValueAC, setPasswordAC } from '../../redux/password-reducer'
 import { AppStateType } from '../../redux/store'
 import { getRandomOne } from '../../utils/randomFunctions'
 import { Button } from '../Button'
@@ -14,6 +14,7 @@ export const DisplayPassword = React.memo(() => {
     const value = useSelector((state: AppStateType) => state.passwordReducer.inputValue)
     const maxValue = useSelector((state: AppStateType) => state.passwordReducer.maxValue)
     const data = useSelector((state: AppStateType) => state.passwordReducer.checkBottons)
+    const password = useSelector((state: AppStateType) => state.passwordReducer.password)
 
 
     let arr: number[] = []
@@ -21,7 +22,10 @@ export const DisplayPassword = React.memo(() => {
         arr.push(i)
     }
     const renderSymbols = useMemo(() => {
-        return arr.map((i, idx) => <span key={idx + 1}>{getRandomOne(data)}</span>)
+        return arr.map((i, idx) => {
+            const count = getRandomOne(data);
+            return <span key={idx + 1}>{count}</span>
+        })
     }, [arr, data])
 
     const onChangeInputRangeHandler = useCallback((e: ChangeEvent<HTMLInputElement>) => {
@@ -36,6 +40,12 @@ export const DisplayPassword = React.memo(() => {
         }
     }, [dispatch, maxValue])
 
+    const onClickCopyHandler = (e: MouseEvent<HTMLButtonElement>) => { }
+
+    useEffect(() => {
+        document.execCommand(value.toString());
+    }, [value])
+
     return (
         <div className={s.displaypassword}>
             <div className={s.displaypassword__symbols}>
@@ -46,7 +56,7 @@ export const DisplayPassword = React.memo(() => {
             <div className={s.displaypassword__group}>
                 <InputDisplay className={s.displaypassword__inputDisplay} value={value} onChange={onChangeInputDisplayHandler} />
                 <InputRange className={s.displaypassword__inputRange} value={value} max={maxValue} onChange={onChangeInputRangeHandler} />
-                <Button title={"Copy"} />
+                <Button title={"Copy"} onClick={onClickCopyHandler} />
                 <Button title={"Generator"} />
             </div>
         </div>
