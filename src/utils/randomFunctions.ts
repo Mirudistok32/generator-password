@@ -23,20 +23,16 @@ export const getRandomOne = (data: Array<CheckBottonsType>) => {
 
     /* eslint-disable */
     let empty: Array<number | string> = data.map(i => {
-        if (i.title === 'Numbers' && i.checked) {
-            randoms.push(getRandomNumber())
-        }else if (i.title === 'Letters' && i.checked) {
+        if (i.title === 'Letters' && i.checked) {
             randoms.push(getRandomLetters())
-        }else if (i.title === 'Symbols' && i.checked) {
+        } else if (i.title === 'Symbols' && i.checked) {
             randoms.push(getRandomSymbols())
-        } else
-        if (i.title === 'Uppercase' && i.checked) {
+        } else if (i.title === 'Uppercase' && i.checked) {
             randoms.push(getRandomUpper())
-        } else 
-        if (i.title === 'Lowercase' && i.checked) {
+        } else if (i.title === 'Lowercase' && i.checked) {
             randoms.push(getRandomLower())
         } else {
-            randoms.push('*')
+            randoms.push(getRandomNumber())
         }
         return i.id
     })

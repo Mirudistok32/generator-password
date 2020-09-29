@@ -10,7 +10,6 @@ export type CheckBottonsType = {
 
 const initialState = {
     checkBottons: [
-        { title: 'Numbers', checked: true, id: v4() },
         { title: 'Letters', checked: false, id: v4() },
         { title: 'Symbols', checked: false, id: v4() },
         { title: 'Uppercase', checked: false, id: v4() },
@@ -32,8 +31,8 @@ const password = createSlice({
             if (elem) {
                 elem.checked = payload.isChecked
             }
-        },
-    }
+        }
+    },
 })
 
 
