@@ -1,0 +1,5 @@
+@import "../../scss/mixins";
+.title {
+  @include fontPoppins(500, normal);
+  font-size: 4em;
+}
