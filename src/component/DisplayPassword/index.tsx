@@ -29,8 +29,12 @@ export const DisplayPassword = React.memo(() => {
     }, [dispatch])
 
     const onChangeInputDisplayHandler = useCallback((e: ChangeEvent<HTMLInputElement>) => {
-        dispatch(setValueAC(+e.currentTarget.value))
-    }, [dispatch])
+        if (+e.currentTarget.value > maxValue) {
+            dispatch(setValueAC(maxValue))
+        } else {
+            dispatch(setValueAC(+e.currentTarget.value))
+        }
+    }, [dispatch, maxValue])
 
     return (
         <div className={s.displaypassword}>
