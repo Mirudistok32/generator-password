@@ -2,6 +2,7 @@ import React, { ChangeEvent, useCallback, useMemo } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { setValueAC } from '../../redux/password-reducer'
 import { AppStateType } from '../../redux/store'
+import { getRandomOne } from '../../utils/randomFunctions'
 import { Button } from '../Button'
 import { InputDisplay } from '../InputDisplay'
 import { InputRange } from '../InputRange'
@@ -12,6 +13,7 @@ export const DisplayPassword = React.memo(() => {
     const dispatch = useDispatch()
     const value = useSelector((state: AppStateType) => state.passwordReducer.inputValue)
     const maxValue = useSelector((state: AppStateType) => state.passwordReducer.maxValue)
+    const data = useSelector((state: AppStateType) => state.passwordReducer.checkBottons)
 
 
     let arr: number[] = []
@@ -19,8 +21,8 @@ export const DisplayPassword = React.memo(() => {
         arr.push(i)
     }
     const renderSymbols = useMemo(() => {
-        return arr.map((i, idx) => <span key={idx + 1}>{Math.floor(Math.random() * 10)}</span>)
-    }, [arr])
+        return arr.map((i, idx) => <span key={idx + 1}>{getRandomOne(data)}</span>)
+    }, [arr, data])
 
     const onChangeInputRangeHandler = useCallback((e: ChangeEvent<HTMLInputElement>) => {
         dispatch(setValueAC(+e.currentTarget.value))

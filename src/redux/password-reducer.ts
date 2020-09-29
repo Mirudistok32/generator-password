@@ -1,6 +1,13 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { v4 } from "uuid";
 
+export type CheckBottonsType = {
+    title: string
+    checked: boolean
+    id: string
+}
+
+
 const initialState = {
     checkBottons: [
         { title: 'Numbers', checked: true, id: v4() },
@@ -8,14 +15,9 @@ const initialState = {
         { title: 'Symbols', checked: false, id: v4() },
         { title: 'Uppercase', checked: false, id: v4() },
         { title: 'Lowercase', checked: false, id: v4() },
-    ],
+    ] as Array<CheckBottonsType>,
     maxValue: 107,
     inputValue: 0,
-    isNumbers: false,
-    isLetters: false,
-    isSymbols: false,
-    isUppercase: false,
-    isLowercase: false,
 }
 
 const password = createSlice({
