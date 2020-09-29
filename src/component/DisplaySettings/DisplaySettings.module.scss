@@ -2,5 +2,23 @@
 
 .displaysettings {
   @include commonStylesForDisplay;
-  min-height: 250px;
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__element-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 0 1px #000;
+    border-radius: 15px;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  &__title {
+  }
+  &__input {
+  }
 }
