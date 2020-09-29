@@ -1,6 +1,6 @@
-import React, { ChangeEvent, MouseEvent, useCallback, useMemo } from 'react'
+import React, { ChangeEvent, MouseEvent, useCallback, useMemo, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { setValueAC} from '../../redux/password-reducer'
+import { setValueAC } from '../../redux/password-reducer'
 import { AppStateType } from '../../redux/store'
 import { getRandomOne } from '../../utils/randomFunctions'
 import { Button } from '../Button'
@@ -11,6 +11,7 @@ import s from './DisplayPassword.module.scss'
 export const DisplayPassword = React.memo(() => {
 
     const dispatch = useDispatch()
+    const [rerenderPages, setRerenderPages] = useState(0)
     const value = useSelector((state: AppStateType) => state.passwordReducer.inputValue)
     const maxValue = useSelector((state: AppStateType) => state.passwordReducer.maxValue)
     const data = useSelector((state: AppStateType) => state.passwordReducer.checkBottons)
@@ -38,6 +39,7 @@ export const DisplayPassword = React.memo(() => {
     }, [dispatch, maxValue])
 
     const onClickCopyHandler = (e: MouseEvent<HTMLButtonElement>) => { }
+    const onClickGeneratorHandler = (e: MouseEvent<HTMLButtonElement>) => { setRerenderPages(rerenderPages + 1) }
 
     return (
         <div className={s.displaypassword}>
@@ -50,7 +52,7 @@ export const DisplayPassword = React.memo(() => {
                 <InputDisplay className={s.displaypassword__inputDisplay} value={value} onChange={onChangeInputDisplayHandler} />
                 <InputRange className={s.displaypassword__inputRange} value={value} max={maxValue} onChange={onChangeInputRangeHandler} />
                 <Button title={"Copy"} onClick={onClickCopyHandler} />
-                <Button title={"Generator"} />
+                <Button title={"Generator"} onClick={onClickGeneratorHandler} />
             </div>
         </div>
     )
