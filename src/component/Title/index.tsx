@@ -5,7 +5,7 @@ type PropsType = {
     title: string
 }
 
-export const Title: React.FC<PropsType> = (props) => {
+export const Title: React.FC<PropsType> = React.memo((props) => {
 
     const { title } = props
 
@@ -14,4 +14,4 @@ export const Title: React.FC<PropsType> = (props) => {
             {title}
         </div>
     )
-}
+})
