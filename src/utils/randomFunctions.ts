@@ -10,7 +10,7 @@ const getRandomUpper = () => {
     return String.fromCharCode(Math.floor(Math.random() * 26) + 65)
 }
 const getRandomNumber = () => {
-    return String.fromCharCode(Math.floor(Math.random() * 10) + 48)
+    return String.fromCharCode(Math.floor(Math.random() * 10) + 48).toString()
 }
 const getRandomSymbols = () => {
     const symbols = '!@#$%^&*(){}[]=<>/,.'
@@ -19,7 +19,7 @@ const getRandomSymbols = () => {
 
 export const getRandomOne = (data: Array<CheckBottonsType>) => {
 
-    let randoms: Array<string | number> = [];
+    let randoms: Array<string> = [];
 
     /* eslint-disable */
     let empty: Array<number | string> = data.map(i => {

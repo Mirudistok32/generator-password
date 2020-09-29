@@ -7,6 +7,7 @@ import { Button } from '../Button'
 import { InputDisplay } from '../InputDisplay'
 import { InputRange } from '../InputRange'
 import s from './DisplayPassword.module.scss'
+import CopyToClipboard from 'react-copy-to-clipboard';
 
 export const DisplayPassword = React.memo(() => {
 
@@ -21,11 +22,10 @@ export const DisplayPassword = React.memo(() => {
         arr.push(i)
     }
     const renderSymbols = useMemo(() => {
-        return arr.map((i, idx) => {
-            return <span key={idx + 1}>{getRandomOne(data)}</span>
-        })
+        return arr.reduce((acc, i) => acc += getRandomOne(data), '')
     }, [arr, data])
 
+    console.log('kjh');
     const onChangeInputRangeHandler = useCallback((e: ChangeEvent<HTMLInputElement>) => {
         dispatch(setValueAC(+e.currentTarget.value))
     }, [dispatch])
@@ -38,7 +38,6 @@ export const DisplayPassword = React.memo(() => {
         }
     }, [dispatch, maxValue])
 
-    const onClickCopyHandler = (e: MouseEvent<HTMLButtonElement>) => { }
     const onClickGeneratorHandler = (e: MouseEvent<HTMLButtonElement>) => { setRerenderPages(rerenderPages + 1) }
 
     return (
@@ -51,7 +50,9 @@ export const DisplayPassword = React.memo(() => {
             <div className={s.displaypassword__group}>
                 <InputDisplay className={s.displaypassword__inputDisplay} value={value} onChange={onChangeInputDisplayHandler} />
                 <InputRange className={s.displaypassword__inputRange} value={value} max={maxValue} onChange={onChangeInputRangeHandler} />
-                <Button title={"Copy"} onClick={onClickCopyHandler} />
+                <CopyToClipboard text={renderSymbols} >
+                    <Button title={"Copy"} />
+                </CopyToClipboard>
                 <Button title={"Generator"} onClick={onClickGeneratorHandler} />
             </div>
         </div>
