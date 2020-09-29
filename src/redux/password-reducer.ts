@@ -18,7 +18,6 @@ const initialState = {
     ] as Array<CheckBottonsType>,
     maxValue: 107,
     inputValue: 0,
-    password: '' as number | string
 }
 
 const password = createSlice({
@@ -34,9 +33,6 @@ const password = createSlice({
                 elem.checked = payload.isChecked
             }
         },
-        setPasswordAC(state, { payload }: PayloadAction<number | string>) {
-            state.password = payload
-        },
     }
 })
 
@@ -44,6 +40,5 @@ const password = createSlice({
 export const {
     setValueAC,
     setIsCheckedAC,
-    setPasswordAC,
 } = password.actions
 export const passwordReducer = password.reducer

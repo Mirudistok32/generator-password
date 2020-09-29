@@ -1,6 +1,6 @@
 import React, { ChangeEvent, MouseEvent, useCallback, useEffect, useMemo } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { setValueAC, setPasswordAC } from '../../redux/password-reducer'
+import { setValueAC } from '../../redux/password-reducer'
 import { AppStateType } from '../../redux/store'
 import { getRandomOne } from '../../utils/randomFunctions'
 import { Button } from '../Button'
@@ -14,8 +14,6 @@ export const DisplayPassword = React.memo(() => {
     const value = useSelector((state: AppStateType) => state.passwordReducer.inputValue)
     const maxValue = useSelector((state: AppStateType) => state.passwordReducer.maxValue)
     const data = useSelector((state: AppStateType) => state.passwordReducer.checkBottons)
-    const password = useSelector((state: AppStateType) => state.passwordReducer.password)
-
 
     let arr: number[] = []
     for (let i = 0; i < value; i++) {
