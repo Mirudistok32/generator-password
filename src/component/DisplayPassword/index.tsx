@@ -1,6 +1,6 @@
 import React, { ChangeEvent, MouseEvent, useCallback, useEffect, useMemo } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { setValueAC } from '../../redux/password-reducer'
+import { setValueAC} from '../../redux/password-reducer'
 import { AppStateType } from '../../redux/store'
 import { getRandomOne } from '../../utils/randomFunctions'
 import { Button } from '../Button'
@@ -21,8 +21,7 @@ export const DisplayPassword = React.memo(() => {
     }
     const renderSymbols = useMemo(() => {
         return arr.map((i, idx) => {
-            const count = getRandomOne(data);
-            return <span key={idx + 1}>{count}</span>
+            return <span key={idx + 1}>{getRandomOne(data)}</span>
         })
     }, [arr, data])
 
@@ -39,10 +38,6 @@ export const DisplayPassword = React.memo(() => {
     }, [dispatch, maxValue])
 
     const onClickCopyHandler = (e: MouseEvent<HTMLButtonElement>) => { }
-
-    useEffect(() => {
-        document.execCommand(value.toString());
-    }, [value])
 
     return (
         <div className={s.displaypassword}>
