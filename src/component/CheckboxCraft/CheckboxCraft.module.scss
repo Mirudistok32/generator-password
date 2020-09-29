@@ -1,3 +1,41 @@
-.checkbox{
-    
+@import "../../scss/mixins";
+.checkbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 0 1px #000;
+  border-radius: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 15px;
+  padding-right: 25px;
+  cursor: pointer;
+  position: relative;
+  &__title {
+    @include fontPoppins(500, normal);
+  }
+  &__input {
+    position: absolute;
+    overflow: hidden;
+    height: 1px;
+    width: 1px;
+    clip: rect(0 0 0 0);
+    &:checked + .checkbox__input-craft {
+      background-image: url("../../assets/images/svg/check-mark.svg");
+    }
+    &:focus + .checkbox__input-craft {
+      border-radius: 2px;
+      box-shadow: 0 0 0 2px turquoise;
+    }
+  }
+  &__input-craft {
+    position: absolute;
+    width: 1em;
+    height: 1em;
+    right: 5px;
+    background-image: url("../../assets/images/svg/empty-checkbox.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+  }
 }

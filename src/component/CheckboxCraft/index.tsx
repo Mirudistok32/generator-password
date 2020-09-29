@@ -14,6 +14,7 @@ export const CheckboxCraft: React.FC<PropsType> = React.memo((props) => {
         <label className={s.checkbox + `${className ? ' ' + className : ''}`}>
             <span className={s.checkbox__title}>{title}</span>
             <input className={s.checkbox__input} type="checkbox" />
+            <span className={s['checkbox__input-craft']}></span>
         </label>
     )
 })
