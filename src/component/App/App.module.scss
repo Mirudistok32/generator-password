@@ -1,14 +1,16 @@
 .app {
-  height: 100%;
-  padding-top: 70px;
   display: flex;
-  align-items: center;
   flex-direction: column;
+  height: 100%;
   &__wrap {
+    padding-top: 70px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
     flex: 1 0 auto;
   }
   &__footer {
-    flex-shrink: 0;
+    flex-basis: 1;
   }
 }
 @media (max-width: 690px) {
