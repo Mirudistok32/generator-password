@@ -40,5 +40,9 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
+    transition: all 0.3s ease-in-out;
+    &:hover {
+      box-shadow: 0 0 10px 0 #2d2d2d;
+    }
   }
 }
