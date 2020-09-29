@@ -15,11 +15,15 @@
 }
 @media (max-width: 690px) {
   .app {
-    padding-top: 10px;
+    &__wrap {
+      padding-top: 10px;
+    }
   }
 }
 @media (max-width: 500px) {
   .app {
-    padding-top: 5px;
+    &__wrap {
+      padding-top: 5px;
+    }
   }
 }
