@@ -25,18 +25,18 @@ export const getRandomOne = (data: Array<CheckBottonsType>) => {
     let empty: Array<number | string> = data.map(i => {
         if (i.title === 'Numbers' && i.checked) {
             randoms.push(getRandomNumber())
-        }
-        if (i.title === 'Letters' && i.checked) {
+        }else if (i.title === 'Letters' && i.checked) {
             randoms.push(getRandomLetters())
-        }
-        if (i.title === 'Symbols' && i.checked) {
+        }else if (i.title === 'Symbols' && i.checked) {
             randoms.push(getRandomSymbols())
-        }
+        } else
         if (i.title === 'Uppercase' && i.checked) {
             randoms.push(getRandomUpper())
-        }
+        } else 
         if (i.title === 'Lowercase' && i.checked) {
             randoms.push(getRandomLower())
+        } else {
+            randoms.push('*')
         }
         return i.id
     })
