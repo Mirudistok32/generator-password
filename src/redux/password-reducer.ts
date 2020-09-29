@@ -1,8 +1,8 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-
 const initialState = {
-    inputValue: '',
+    maxValue: 107,
+    inputValue: 0,
     isNumbersCheck: true,
     isSymbolsCheck: false,
     isLettersCheck: false,
@@ -10,12 +10,12 @@ const initialState = {
     isLowercaseCheck: false
 }
 
-const passwordReducer = createSlice({
+const password = createSlice({
     name: 'password',
     initialState,
     reducers: {
-        setValueAC(state, { payload }: PayloadAction<{ value: string }>) {
-            state.inputValue = payload.value
+        setValueAC(state, { payload }: PayloadAction<number>) {
+            state.inputValue = payload
         },
         setIsNumbersCheckAC(state, { payload }: PayloadAction<{ isNumber: boolean }>) {
             state.isNumbersCheck = payload.isNumber
@@ -42,5 +42,6 @@ export const {
     setIsNumbersCheckAC,
     setIsSymbolsCheckAC,
     setIsUppercaseCheckAC,
-    setValueAC } = passwordReducer.actions
-export default passwordReducer.reducer
+    setValueAC
+} = password.actions
+export const passwordReducer = password.reducer

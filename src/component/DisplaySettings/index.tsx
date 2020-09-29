@@ -4,7 +4,6 @@ import s from './DisplaySettings.module.scss'
 
 export const DisplaySettings = React.memo(() => {
 
-    console.log(String.fromCharCode(72));
     return (
         <div className={s.displaysettings}>
             <ul className={s['displaysettings__list']}>
