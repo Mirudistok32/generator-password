@@ -46,3 +46,16 @@
     }
   }
 }
+@media (max-width: 320px) {
+  .checkbox {
+    padding-top: 7px;
+    padding-bottom: 7px;
+    padding-left: 10px;
+    padding-right: 25px;
+    &__input-craft {
+      width: 0.9em;
+      height: 0.9em;
+      right: 5px;
+    }
+  }
+}

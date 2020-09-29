@@ -1,5 +1,5 @@
 .boxdisplay {
-  max-height: 530px;
+  max-height: 600px;
   max-width: 970px;
   padding: 10px;
   width: 100%;
@@ -8,4 +8,9 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+@media(max-width: 450px){
+  .boxdisplay {
+    padding: 0 5px;
+  }
 }

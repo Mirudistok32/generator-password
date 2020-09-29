@@ -19,7 +19,7 @@ export const DisplaySettings = React.memo(() => {
                 key={i.id}
                 className={s.displaysettings__element}
             >
-                <CheckboxCraft title={i.title} checked={i.checked} onChange={onChangeHandler} />
+                <CheckboxCraft title={i.title} checked={i.checked} onChange={onChangeHandler} className={s.displaysettings__checkbox}/>
             </li>
         )
     }), [checkBottons, dispatch])

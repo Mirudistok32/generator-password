@@ -5,7 +5,25 @@
   &__list {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
+  }
+  &__checkbox {
+    margin: 10px;
+  }
+}
+@media (max-width: 450px) {
+  .displaysettings {
+    margin: 0;
+    padding: 10px;
+    box-shadow: none;
+  }
+}
+@media (max-width: 320px) {
+  .displaysettings {
+    padding: 2px;
+    &__checkbox {
+      margin: 5px;
+    }
   }
 }

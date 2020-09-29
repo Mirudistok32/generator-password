@@ -5,3 +5,13 @@
   align-items: center;
   flex-direction: column;
 }
+@media(max-width: 690px){
+  .app{
+    padding-top: 10px;
+  }
+}
+@media(max-width: 500px){
+  .app{
+    padding-top: 5px;
+  }
+}
