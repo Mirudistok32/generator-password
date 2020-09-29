@@ -17,7 +17,7 @@ const initialState = {
         { title: 'Lowercase', checked: false, id: v4() },
     ] as Array<CheckBottonsType>,
     maxValue: 107,
-    inputValue: 0,
+    inputValue: 4,
 }
 
 const password = createSlice({

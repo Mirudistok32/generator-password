@@ -25,7 +25,6 @@ export const DisplayPassword = React.memo(() => {
         return arr.reduce((acc, i) => acc += getRandomOne(data), '')
     }, [arr, data])
 
-    console.log('kjh');
     const onChangeInputRangeHandler = useCallback((e: ChangeEvent<HTMLInputElement>) => {
         dispatch(setValueAC(+e.currentTarget.value))
     }, [dispatch])
