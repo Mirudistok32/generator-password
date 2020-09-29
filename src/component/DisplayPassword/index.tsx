@@ -1,4 +1,4 @@
-import React, { ChangeEvent, MouseEvent, useCallback, useEffect, useMemo } from 'react'
+import React, { ChangeEvent, MouseEvent, useCallback, useMemo } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { setValueAC} from '../../redux/password-reducer'
 import { AppStateType } from '../../redux/store'
